@@ -1,0 +1,19 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Enter information:",
+                "data": {
+                    "locale": "Locale",
+                    "country": "Country",
+                    "allow_countries": "Allow countries",
+                }
+            }
+        },
+        "error": {
+            "locale_error": "Locale invalid",
+            "country_error": "Country invalid",
+            "allow_countries_error": "Allow countries invalid"
+        }
+    }
+}
