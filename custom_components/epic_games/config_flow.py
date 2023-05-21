@@ -37,7 +37,7 @@ class EpicGamesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 self.allow_contries = user_input.get(CONF_ALLOW_COUNTRIES)
 
                 return self.async_create_entry(
-                    title=f"Epic Games {self.locale}",
+                    title=f"Epic Games {self.country}",
                     data={
                         CONF_LOCALE: self.locale,
                         CONF_COUNTRY: self.country,

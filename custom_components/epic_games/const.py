@@ -2,7 +2,7 @@ from datetime import timedelta
 
 BASE_URL = "https://store-site-backend-static.ak.epicgames.com/"
 
-ICON = "mdi:video-game"
+ICON = "mdi:controller-classic"
 CONF_LOCALE = "locale"
 CONF_COUNTRY = "country"
 CONF_ALLOW_COUNTRIES = "allow_countries"

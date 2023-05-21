@@ -1,12 +1,14 @@
 {
   "domain": "epic-games",
-  "name": "Epic Free Games",
+  "name": "Epic Games",
   "version": "0.1.0",
   "documentation": "https://github.com/hudsonbrendon/sensor.epicgames#readme",
   "issue_tracker": "https://github.com/hudsonbrendon/sensor.epicgames/issues",
   "dependencies": [],
   "codeowners": ["@hudsonbrendon"],
-  "requirements": [],
+  "requirements": [
+    "beautifulsoup4==4.12.2"
+  ],
   "iot_class": "cloud_polling",
   "config_flow": true
 }

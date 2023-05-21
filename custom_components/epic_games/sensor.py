@@ -1,6 +1,7 @@
+
 import logging
 from typing import List
-
+from bs4 import BeautifulSoup
 import homeassistant.helpers.config_validation as cv
 import requests
 import voluptuous as vol
@@ -134,6 +135,25 @@ class EpicGamesSensor(Entity):
             "data": self.games,
         }
 
+    @property
+    def headers(self) -> dict:
+        """Headers."""
+        return {
+            "User-Agent": "Mozilla/5.0",
+        }
+
+    def get_score_metacritic(self, game_name: str) -> str:
+        """Get Metacritic score."""
+        search_url = f"https://www.metacritic.com/search/game/{game_name}/results?plats[3]=1&search_type=advanced"
+        response = requests.get(search_url, headers=self.headers)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "html.parser")
+        try:
+            game_score = soup.find("span", class_="metascore_w medium game positive").get_text()
+        except AttributeError:
+            game_score = "N/A"
+        return game_score
+
     def update(self) -> None:
         """Update sensor."""
         _LOGGER.debug("%s - Running update", self.name)
@@ -146,28 +166,23 @@ class EpicGamesSensor(Entity):
         http = requests.Session()
         http.mount("https://", adapter)
 
-        games = http.get(self.url, headers={"User-Agent": "Mozilla/5.0"})
+        games = http.get(self.url, headers=self.headers)
         parsed_games = games.json()["data"]["Catalog"]["searchStore"]["elements"]
 
         if games.ok:
             self._games.extend(
                 [
                     dict(
-                        title=game.get("title", "Não informado"),
+                        title=game.get("title"),
                         poster=game["keyImages"][0]["url"]
                         if game["keyImages"]
                         else DEFAULT_POSTER,
-                        synopsis=game.get("description", "Não informado"),
-                        director=game.get("director", "Não informado"),
-                        cast=game.get("cast", "Não informado"),
-                        studio=game.get("distributor", "Não informado"),
-                        genres=game.get("genres", "Não informado"),
-                        runtime=game.get("duration", "Não informado"),
-                        rating=game.get("contentRating", "Não informado"),
+                        rating=self.get_score_metacritic(game.get("title")),
+                        synopsis=game.get("description"),
+                        studio=game["seller"]["name"],
+                        runtime=game["viewableDate"].split("T")[0],
                         release="$date",
                         airdate=game["viewableDate"].split("T")[0],
-                        city=game.get("city", "Não informado"),
-                        ticket=game.get("siteURL", "Não informado"),
                     )
                     for game in parsed_games
                 ]
