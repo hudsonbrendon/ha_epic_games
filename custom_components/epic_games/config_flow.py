@@ -2,13 +2,14 @@ import voluptuous as vol
 from homeassistant import config_entries
 
 from . import get_games
-from .const import CONF_LOCALE, CONF_COUNTRY, CONF_ALLOW_COUNTRIES, DOMAIN
+from .const import CONF_LOCALE, CONF_COUNTRY, CONF_ALLOW_COUNTRIES, DOMAIN, VALID_LOCALES, VALID_COUNTRIES
+
 
 DATA_SCHEMA: vol.Schema = vol.Schema(
     {
-        vol.Required(CONF_LOCALE): str,
-        vol.Required(CONF_COUNTRY): str,
-        vol.Required(CONF_ALLOW_COUNTRIES): str,
+        vol.Optional(CONF_LOCALE): vol.In(VALID_LOCALES),
+        vol.Optional(CONF_COUNTRY): vol.In(VALID_COUNTRIES),
+        vol.Optional(CONF_ALLOW_COUNTRIES): vol.In(VALID_COUNTRIES),
     }
 )
 

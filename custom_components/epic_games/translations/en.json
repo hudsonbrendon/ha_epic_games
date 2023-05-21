@@ -6,7 +6,7 @@
                 "data": {
                     "locale": "Locale",
                     "country": "Country",
-                    "allow_countries": "Allow countries",
+                    "allow_countries": "Allow countries"
                 }
             }
         },
