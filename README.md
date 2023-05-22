@@ -66,12 +66,11 @@ max: 10
 image_style: fanart
 date: ddmm
 line1_text: "Metacritic: $rating"
-line2_text: "Metacritic: $release"
 ```
 
 After setup, the card above will look like this:
 
-![image](https://github.com/hudsonbrendon/ha_epic_games/assets/5201888/6bba690e-e9b4-4be1-8233-ec54c236ccb1)
+![image](https://github.com/hudsonbrendon/ha_epic_games/assets/5201888/8aef226f-bae3-48f4-82b1-2d09b1990e2d)
 
 [buymecoffee]: https://www.buymeacoffee.com/hudsonbrendon
 [buymecoffeebedge]: https://camo.githubusercontent.com/cd005dca0ef55d7725912ec03a936d3a7c8de5b5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6275792532306d6525323061253230636f666665652d646f6e6174652d79656c6c6f772e737667
