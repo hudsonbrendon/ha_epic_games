@@ -56,7 +56,7 @@ logger:
 
 ## Make a card
 
-To view Epic Games information, follow an example of a card. Remember to replace the entities present on the card with your entities.
+To view Epic Games information, follow an example of a card. Remember to install the [upcoming-media-card](https://github.com/NemesisRE/upcoming-media-card)
 
 ```yaml
 type: custom:upcoming-media-card
