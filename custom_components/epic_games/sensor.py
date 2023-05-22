@@ -1,4 +1,3 @@
-
 import logging
 from typing import List
 from bs4 import BeautifulSoup
@@ -149,7 +148,9 @@ class EpicGamesSensor(Entity):
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         try:
-            game_score = soup.find("span", class_="metascore_w medium game positive").get_text()
+            game_score = soup.find(
+                "span", class_="metascore_w medium game positive"
+            ).get_text()
         except AttributeError:
             game_score = "N/A"
         return game_score
@@ -170,7 +171,7 @@ class EpicGamesSensor(Entity):
         parsed_games = games.json()["data"]["Catalog"]["searchStore"]["elements"]
 
         if games.ok:
-            self._games.extend(
+            self._games.append(
                 [
                     dict(
                         title=game.get("title"),
