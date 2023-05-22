@@ -2,8 +2,6 @@
 
 # Epic Games Custom Integration Home Assistant
 
-![logo](https://github.com/hudsonbrendon/ha_epic_games/assets/5201888/5199e112-322f-4b5f-8a57-246a0ed05afa)
-
 Custom integration for the Home Assistant to obtain information present in [epicgames.com](https://www.epicgames.com/).
 
 ## Install
