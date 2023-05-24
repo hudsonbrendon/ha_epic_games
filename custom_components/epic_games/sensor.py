@@ -172,7 +172,7 @@ class EpicGamesSensor(Entity):
                     "icon": "mdi:arrow-down-bold",
                 }
             ]
-            self._games.append(
+            self._games.extend(
                 [
                     dict(
                         title=game.get("title"),
