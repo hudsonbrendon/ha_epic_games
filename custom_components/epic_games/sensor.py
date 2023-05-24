@@ -72,16 +72,7 @@ class EpicGamesSensor(Entity):
         self._allow_countries = allow_countries
         self.session = session
         self._name = name
-        self._games = [
-            {
-                "title_default": "$title",
-                "line1_default": "$rating",
-                "line2_default": "$release",
-                "line3_default": "$runtime",
-                "line4_default": "$studio",
-                "icon": "mdi:arrow-down-bold",
-            }
-        ]
+        self._games = []
         self._last_updated = const.STATE_UNKNOWN
 
     @property
@@ -169,8 +160,18 @@ class EpicGamesSensor(Entity):
 
         games = http.get(self.url, headers=self.headers)
         parsed_games = games.json()["data"]["Catalog"]["searchStore"]["elements"]
-
         if games.ok:
+            self._games.clear()
+            self._games = [
+                {
+                    "title_default": "$title",
+                    "line1_default": "$rating",
+                    "line2_default": "$release",
+                    "line3_default": "$runtime",
+                    "line4_default": "$studio",
+                    "icon": "mdi:arrow-down-bold",
+                }
+            ]
             self._games.append(
                 [
                     dict(
@@ -188,6 +189,7 @@ class EpicGamesSensor(Entity):
                     for game in parsed_games
                 ]
             )
+
             _LOGGER.debug("Payload received: %s", games.json())
         else:
             _LOGGER.debug("Error received: %s", games.content)
