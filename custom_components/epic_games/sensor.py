@@ -142,7 +142,7 @@ class EpicGamesSensor(Entity):
             game_score = soup.find(
                 "span", class_="metascore_w medium game positive"
             ).get_text()
-        except Exception:
+        except:
             game_score = "N/A"
         return game_score
 
