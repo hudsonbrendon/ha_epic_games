@@ -134,13 +134,13 @@ class EpicGamesSensor(Entity):
 
     def get_score_metacritic(self, game_name: str) -> str:
         """Get Metacritic score."""
-        search_url = f"https://www.metacritic.com/search/game/{game_name}/results?plats[3]=1&search_type=advanced"
+        search_url = f"https://www.metacritic.com/search/{game_name}/?category=13"
         response = requests.get(search_url, headers=self.headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         try:
             game_score = soup.find(
-                "span", class_="metascore_w medium game positive"
+                "div", class_="c-siteReviewScore"
             ).get_text()
         except AttributeError:
             game_score = "N/A"
