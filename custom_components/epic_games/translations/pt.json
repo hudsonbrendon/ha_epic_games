@@ -1,0 +1,19 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Informação sobre os dados:",
+                "data": {
+                    "locale": "Localidade",
+                    "country": "País",
+                    "allow_countries": "Países Permitidos"
+                }
+            }
+        },
+        "error": {
+            "locale_error": "Localidade inválida",
+            "country_error": "País inválido",
+            "allow_countries_error": "Países Permitidos inválidos"
+        }
+    }
+}
