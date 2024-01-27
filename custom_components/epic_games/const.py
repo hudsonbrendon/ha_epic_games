@@ -25,7 +25,7 @@ VALID_LOCALES = [
 ]
 
 VALID_COUNTRIES = [
-    'US', 'CA', 'UK', 'AU', 'NZ',
+    'US', 'CA', 'GB', 'AU', 'NZ',
     'ES', 'MX', 'AR', 'CL', 'CO', 'PE',
     'FR', 'CA',
     'DE', 'AT', 'CH',
