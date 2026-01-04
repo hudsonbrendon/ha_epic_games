@@ -11,7 +11,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.entity import Entity
 from homeassistant.util.dt import utc_from_timestamp
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util.retry import Retry
 
 from .const import (
     BASE_URL,
@@ -152,7 +152,7 @@ class EpicGamesSensor(Entity):
         retry_strategy = Retry(
             total=3,
             status_forcelist=[400, 401, 500, 502, 503, 504],
-            method_whitelist=["GET"],
+            allowed_methods=["GET"],
         )
         adapter = HTTPAdapter(max_retries=retry_strategy)
         http = requests.Session()
@@ -187,6 +187,9 @@ class EpicGamesSensor(Entity):
                         airdate=game["viewableDate"].split("T")[0],
                     )
                     for game in parsed_games
+		    if game.get("promotions") and game["promotions"].get("promotionalOffers")
+		    and game.get("price",{}).get("totalPrice", {}).get("originalPrice", 0)
+		    == game.get("price", {}).get("totalPrice", {}).get("discount", -1)
                 ]
             )
 
