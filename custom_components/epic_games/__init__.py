@@ -1,5 +1,5 @@
 import logging
-from typing import Optional, Union
+from typing import Optional, Union  # noqa: F401
 
 import requests
 from homeassistant import config_entries, core
@@ -8,7 +8,7 @@ from homeassistant.exceptions import ConfigEntryAuthFailed
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-from .const import BASE_URL, DOMAIN, CONF_LOCALE, CONF_COUNTRY, CONF_ALLOW_COUNTRIES
+from .const import BASE_URL, CONF_ALLOW_COUNTRIES, CONF_COUNTRY, CONF_LOCALE, DOMAIN
 
 PLATFORMS = [Platform.SENSOR]
 
@@ -63,7 +63,7 @@ async def async_migrate_entry(
 
 async def get_games(
     hass, locale: str, country: str, allow_countries: str
-) -> Union[dict, Optional[None]]:
+) -> dict | None:
     def get():
         url = f"{BASE_URL}/freeGamesPromotions?locale={locale}&country={country}&allowCountries={allow_countries}"
         retry_strategy = Retry(

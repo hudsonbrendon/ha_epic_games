@@ -1,10 +1,10 @@
 import logging
-from typing import List
-from bs4 import BeautifulSoup
+
 import homeassistant.helpers.config_validation as cv
 import requests
 import voluptuous as vol
 from aiohttp import ClientSession
+from bs4 import BeautifulSoup
 from homeassistant import config_entries, const, core
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
@@ -15,13 +15,12 @@ from requests.packages.urllib3.util.retry import Retry
 
 from .const import (
     BASE_URL,
+    CONF_ALLOW_COUNTRIES,
     CONF_COUNTRY,
     CONF_LOCALE,
-    CONF_ALLOW_COUNTRIES,
     DEFAULT_POSTER,
     DOMAIN,
     ICON,
-    SCAN_INTERVAL,
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
@@ -109,7 +108,7 @@ class EpicGamesSensor(Entity):
             return utc_from_timestamp(int(stamp))
 
     @property
-    def games(self) -> List[dict]:
+    def games(self) -> list[dict]:
         """Games."""
         return self._games
 
@@ -174,7 +173,7 @@ class EpicGamesSensor(Entity):
             ]
             self._games.extend(
                 [
-                    dict(
+                    dict(  # noqa: C408
                         title=game.get("title"),
                         poster=game["keyImages"][0]["url"]
                         if game["keyImages"]

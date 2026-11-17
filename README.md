@@ -1,6 +1,17 @@
-![hacs_badge](https://img.shields.io/badge/hacs-custom-orange.svg) [![BuyMeCoffee][buymecoffeebedge]][buymecoffee] [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
+<p align="center">
+  <img src="custom_components/epic_games/brand/icon@2x.png" alt="Epic Games" height="128">
+</p>
 
 # Epic Games Custom Integration Home Assistant
+
+[![Tests](https://github.com/hudsonbrendon/ha_epic_games/actions/workflows/tests.yml/badge.svg)](https://github.com/hudsonbrendon/ha_epic_games/actions/workflows/tests.yml)
+[![Hassfest](https://github.com/hudsonbrendon/ha_epic_games/actions/workflows/hassfest.yml/badge.svg)](https://github.com/hudsonbrendon/ha_epic_games/actions/workflows/hassfest.yml)
+[![HACS](https://github.com/hudsonbrendon/ha_epic_games/actions/workflows/validate.yml/badge.svg)](https://github.com/hudsonbrendon/ha_epic_games/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/hudsonbrendon/ha_epic_games?sort=semver)](https://github.com/hudsonbrendon/ha_epic_games/releases)
+[![Downloads](https://img.shields.io/github/downloads/hudsonbrendon/ha_epic_games/total)](https://github.com/hudsonbrendon/ha_epic_games/releases)
+[![HACS Default](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
+[![BuyMeCoffee][buymecoffeebedge]][buymecoffee]
+[![License](https://img.shields.io/github/license/hudsonbrendon/ha_epic_games)](LICENSE)
 
 Custom integration for the Home Assistant to obtain information present in [epicgames.com](https://www.epicgames.com/).
 
