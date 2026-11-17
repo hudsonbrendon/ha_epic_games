@@ -8,7 +8,7 @@
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/hudsonbrendon/sensor.epicgames/issues",
   "requirements": [
-    "beautifulsoup4==4.12.2"
+    "beautifulsoup4>=4.12.2"
   ],
   "version": "0.1.4"
 }
