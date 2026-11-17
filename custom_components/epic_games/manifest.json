@@ -1,14 +1,16 @@
 {
   "domain": "epic_games",
   "name": "Epic Games",
-  "codeowners": ["@hudsonbrendon"],
+  "codeowners": [
+    "@hudsonbrendon"
+  ],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/hudsonbrendon/sensor.epicgames#readme",
+  "documentation": "https://github.com/hudsonbrendon/ha_epic_games",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/hudsonbrendon/sensor.epicgames/issues",
+  "issue_tracker": "https://github.com/hudsonbrendon/ha_epic_games/issues",
   "requirements": [
     "beautifulsoup4>=4.12.2"
   ],
-  "version": "0.1.4"
+  "version": "0.1.6"
 }
